@@ -36,7 +36,11 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Game\Knife_Controller.cs" />
+     <Compile Include="Assets\Scripts\Game\Knife_Spawner.cs" />
      <Compile Include="Assets\Scripts\Game\LevelManager_GM.cs" />
+     <Compile Include="Assets\Scripts\Game\Sheild_Movement.cs" />
+     <Compile Include="Assets\Scripts\Game\Sound_Controller.cs" />
      <Compile Include="Assets\Scripts\Levels\Level_GM.cs" />
      <Compile Include="Assets\Scripts\MainMenu\MainMenu_GM.cs" />
      <Compile Include="Assets\Scripts\Options\Options_GM.cs" />

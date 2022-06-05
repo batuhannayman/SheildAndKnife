@@ -6,11 +6,15 @@ using UnityEngine.UI;
 
 public class Options_GM : MonoBehaviour
 {
-    public Slider slider;
+    [SerializeField] Slider slider;
+
+    AudioSource audio_Source;
+    [SerializeField] AudioClip button_Sound;
 
     // Start is called before the first frame update
     void Start()
     {
+        audio_Source = GetComponent<AudioSource>();
         LoadAudio();
     }
 
@@ -42,6 +46,7 @@ public class Options_GM : MonoBehaviour
 
     public void btn_Back_Click()
     {
+        audio_Source.PlayOneShot(button_Sound);
         SceneManager.LoadScene(0);
     }
 }

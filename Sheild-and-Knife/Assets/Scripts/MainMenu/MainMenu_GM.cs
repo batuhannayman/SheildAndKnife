@@ -5,9 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu_GM : MonoBehaviour
 {
+    AudioSource audio_Source;
+    [SerializeField] AudioClip button_Sound;
+
     private void Start()
     {
-        PlayerPrefs.SetInt("choosen_Level",0);
+        audio_Source = GetComponent<AudioSource>();
+
         if (PlayerPrefs.HasKey("audioVolume"))
         {
             AudioListener.volume = PlayerPrefs.GetFloat("audioVolume");
@@ -21,16 +25,20 @@ public class MainMenu_GM : MonoBehaviour
 
     public void btn_Play_Click()
     {
+        audio_Source.PlayOneShot(button_Sound);
+        PlayerPrefs.SetInt("choosen_Level",0);
         SceneManager.LoadScene(1);
     }
 
     public void btn_Levels_Click()
     {
+        audio_Source.PlayOneShot(button_Sound);
         SceneManager.LoadScene(2);
     }
 
     public void btn_Options_Click()
     {
+        audio_Source.PlayOneShot(button_Sound);
         SceneManager.LoadScene(3);
     }
 
