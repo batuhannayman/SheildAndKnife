@@ -87,7 +87,6 @@ public class LevelManager_GM : MonoBehaviour
         if(PlayerPrefs.GetInt("choosen_Level") > 0)
         {
             level = PlayerPrefs.GetInt("choosen_Level");
-            txt_Level.text = PlayerPrefs.GetInt("choosen_Level").ToString();
         }
         else
         {
@@ -100,8 +99,6 @@ public class LevelManager_GM : MonoBehaviour
                 PlayerPrefs.SetInt("highest_Level", 1);
                 level = PlayerPrefs.GetInt("highest_Level");
             }
-
-            txt_Level.text = level.ToString();
         }
 
         switch(level)
