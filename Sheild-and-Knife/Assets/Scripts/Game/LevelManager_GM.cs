@@ -8,14 +8,13 @@ public class LevelManager_GM : MonoBehaviour
 {
     public static LevelManager_GM instance;
     [SerializeField] private Text txt_Level;
-    [SerializeField] private GameObject LosePanel, WinPanel;
+    [SerializeField] private GameObject LosePanel, WinPanel, GameOverPanel;
     public static int level;
     public static int knife_Count;
 
     private GameObject sheild;
 
-    [SerializeField] GameObject s1, s2, s3, s4, s5, s6, s7, s8, 
-                                s9, s10, s11, s12, s13, s14, s15;
+    [SerializeField] GameObject s1, s2, s3, s4, s5;
 
 
     // Start is called before the first frame update
@@ -45,6 +44,7 @@ public class LevelManager_GM : MonoBehaviour
         WinPanel.SetActive(true);
         GameObject.FindWithTag("Sheild").transform.GetComponent<Sheild_Movement>().enabled = false;
         Destroy(GameObject.FindWithTag("Respawn"));
+        Destroy(GameObject.FindWithTag("Knife"));
     }
 
     public void Lose()
@@ -52,6 +52,13 @@ public class LevelManager_GM : MonoBehaviour
         LosePanel.SetActive(true);
         GameObject.FindWithTag("Sheild").transform.GetComponent<Sheild_Movement>().enabled = false;
         Destroy(GameObject.FindWithTag("Respawn"));
+        Destroy(GameObject.FindWithTag("Knife"));
+    }
+
+    public void GameOver()
+    {
+        GameOverPanel.SetActive(true);
+        PlayerPrefs.SetInt("highest_Level", 15);
     }
 
     public void NextLevel()
@@ -101,66 +108,84 @@ public class LevelManager_GM : MonoBehaviour
         {
             case 1:
                 sheild = s1;
-                knife_Count = 3;
+                knife_Count = 10;
                 break;
 
             case 2:
-                sheild = s2;
-                knife_Count = 9;
+                sheild = s1;
+                knife_Count = 12;
                 break;
 
             case 3:
-                sheild = s3;
-                knife_Count = 7;
+                sheild = s1;
+                knife_Count = 14;
                 break;
 
             case 4:
-                sheild = s4;
+                sheild = s1;
+                knife_Count = 16;
                 break;
 
             case 5:
-                sheild = s5;
+                sheild = s2;
+                knife_Count = 10;
                 break;
 
             case 6:
-                sheild = s6;
+                sheild = s2;
+                knife_Count = 12;
                 break;
 
             case 7:
-                sheild = s7;
+                sheild = s3;
+                knife_Count = 10;
                 break;
 
             case 8:
-                sheild = s8;
+                sheild = s3;
+                knife_Count = 12;
                 break;
 
             case 9:
-                sheild = s9;
+                sheild = s3;
+                knife_Count = 14;
                 break;
 
             case 10:
-                sheild = s10;
+                sheild = s4;
+                knife_Count = 10;
                 break;
 
             case 11:
-                sheild = s11;
+                sheild = s4;
+                knife_Count = 12;
                 break;
 
             case 12:
-                sheild = s12;
+                sheild = s5;
+                knife_Count = 14;
                 break;
 
             case 13:
-                sheild = s13;
+                sheild = s5;
+                knife_Count = 10;
                 break;
 
             case 14:
-                sheild = s14;
+                sheild = s5;
+                knife_Count = 12;
                 break;
 
             case 15:
-                sheild = s15;
+                sheild = s5;
+                knife_Count = 14;
+                break;
+            case 16:
+                sheild = s3;
+                knife_Count = 18;
                 break;
         }
+
+        Instantiate(sheild, transform.position = new Vector3(0f, 3f, 0), transform.rotation);
     }
 }
